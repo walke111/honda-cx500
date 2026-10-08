@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "logo   intro  intro"
+    "custom custom cafe"
+    "q1     q2     q3";
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cell {
+  border: 3px solid black;
+  background-color: white;
+}
+
+.header {
+  grid-area: header;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 6px solid #cc0000;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.tagline {
+  margin: 5px 0 0;
+  font-style: italic;
+  color: #cc0000;
+}
+
+.img-cell {
+  overflow: hidden;
+}
+
+.img-cell img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo {
+  grid-area: logo;
+  aspect-ratio: 1 / 1;
+}
+
+.custom {
+  grid-area: custom;
+  display: flex;
+  align-items: center;
+}
+
+.custom img {
+  height: auto;
+  object-fit: contain;
+}
+
+.cafe {
+  grid-area: cafe;
+}
+
+.text-cell {
+  padding: 20px;
+}
+
+.text-cell h2,
+.text-cell h3 {
+  margin: 0 0 10px;
+  color: #cc0000;
+  text-transform: uppercase;
+}
+
+.text-cell p {
+  margin: 0 0 10px;
+  line-height: 1.5;
+}
+
+.intro {
+  grid-area: intro;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.q1 {
+  grid-area: q1;
+}
+
+.q2 {
+  grid-area: q2;
+}
+
+.q3 {
+  grid-area: q3;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "logo"
+      "intro"
+      "custom"
+      "q1"
+      "cafe"
+      "q2"
+      "q3";
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .logo {
+    aspect-ratio: 2 / 1;
+  }
+
+  .img-cell img {
+    height: auto;
+  }
+
+  .cafe {
+    aspect-ratio: 4 / 5;
+  }
+
+  .logo img,
+  .cafe img {
+    height: 100%;
+  }
+
+  .intro {
+    font-size: 1rem;
+  }
+}
